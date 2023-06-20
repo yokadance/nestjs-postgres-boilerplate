@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { configValidationSchema } from './config.schema';
+import { LlamadosModule } from './llamados/llamados.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { configValidationSchema } from './config.schema';
       },
     }),
     UsersModule,
+    LlamadosModule,
   ],
   controllers: [AppController],
   providers: [AppService],
