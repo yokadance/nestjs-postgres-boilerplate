@@ -1,7 +1,7 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class LlamadoLaboral {
+export class LlamadoLaboralEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -15,7 +15,7 @@ export class LlamadoLaboral {
   Departamento: string;
 
   @Column()
-  Descripcion: string;
+  descripcion: string;
 
   @Column()
   creadoPor: string;

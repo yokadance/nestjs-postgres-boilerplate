@@ -8,7 +8,7 @@ export class CreateLlamadoDto {
   @ApiProperty()
   Departamento: string;
   @ApiProperty()
-  Descripcion: string;
+  descripcion: string;
   @ApiProperty()
   creadoPor: string;
   @ApiProperty()
