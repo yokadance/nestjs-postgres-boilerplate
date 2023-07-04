@@ -30,12 +30,31 @@ export class LlamadosController {
 
   @ApiOperation({ summary: 'Get Todos llamados' })
   @Get()
-  public async getAll(@Res() res: Response): Promise<void> {
+  public async getAll(
+    @Res() res: Response,
+    @Query('_start') start: number,
+    @Query('_end') end: number,
+  ): Promise<LlamadoLaboralEntity[]> {
+    const limit = end - start;
+    const offset = start;
     const data: LlamadoLaboralEntity[] =
-      await this.llamadoLaboralService.getAllLlamadoLaboral();
+      await this.llamadoLaboralService.getAllLlamadoLaboral(limit, offset);
     const totalCount: number = await this.llamadoLaboralService.getTotalCount();
     res.setHeader('X-Total-Count', totalCount);
     res.status(HttpStatus.OK).json(data);
+    return this.llamadoLaboralService.getAllLlamadoLaboral(limit, offset);
+  }
+
+  @Get()
+  public async getAll2(
+    @Query('_start') start: number,
+    @Query('_end') end: number,
+  ): Promise<LlamadoLaboralEntity[]> {
+    // Calcula el límite y la cantidad de elementos a obtener
+    const limit = end - start;
+    const offset = start;
+
+    return this.llamadoLaboralService.getAllLlamadoLaboral(limit, offset);
   }
 
   @Get(':id')

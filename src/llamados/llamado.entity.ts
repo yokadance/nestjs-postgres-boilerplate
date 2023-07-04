@@ -12,7 +12,7 @@ export class LlamadoLaboralEntity {
   localidad: string;
 
   @Column()
-  Departamento: string;
+  departamento: string;
 
   @Column()
   descripcion: string;
